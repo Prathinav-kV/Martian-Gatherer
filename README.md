@@ -1,3 +1,5 @@
+![CICD Workflow status](https://github.com/Prathinav-kV/Martian-Gatherer/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/Prathinav-kV/Martian-Gatherer/graph/badge.svg?token=5IIV6EXEEV)](https://codecov.io/gh/Prathinav-kV/Martian-Gatherer)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 # Martian Gatherer Robot
 
 ## Overview
