@@ -8,8 +8,10 @@ The Martian Gatherer Robot is a TurtleBot3-based autonomous system designed to o
 - **ArUco Marker Detection**: Using an onboard camera, the robot identifies ArUco markers placed on the scattered objects, allowing for precise localization.
 - **Object Collection**: Once the object is located, the robot moves towards it to collect it and transport it to a specified storage area.
 
-## AIP Product Backlog
-- https://docs.google.com/spreadsheets/d/1JDAhqKNzfQw_SQy7KT3hBV-zDd4FMuCs95LgB8wYdUY/edit?gid=0#gid=0
+## AIP Product Backlog and Sprint Planning 
+- https://docs.google.com/spreadsheets/d/1JDAhqKNzfQw_SQy7KT3hBV-zDd4FMuCs95LgB8wYdUY/edit?gid=0#gid=0 -- Sheet Link for Product Backlog
+
+- https://docs.google.com/document/d/1xY_Vxz4sa3DS9jx3DZNXnuZeMRPlwxqR0DCihDlczrA/edit?tab=t.0 -- Sprint Planning Doc
 
 ## System Components
 - **Hardware**: 
