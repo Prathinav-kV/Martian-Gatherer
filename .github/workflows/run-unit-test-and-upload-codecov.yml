@@ -30,8 +30,10 @@ jobs:
 
       - name: Configure CMake flags and build executables
         run: |
+          source /opt/ros/humble/setup.bash
           cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
           cmake --build build/ --target random_test --clean-first
+
 
       - name: List build directory
         run: ls -R build
