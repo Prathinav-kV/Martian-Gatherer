@@ -23,6 +23,11 @@ jobs:
           sudo apt update
           sudo apt install -y ros-humble-desktop
 
+      - name: Install Gazebo
+        run: |
+          sudo apt update
+          sudo apt install -y gazebo libgazebo-dev
+
       - name: Install build packages
         run: |
           sudo apt install -y software-properties-common
@@ -38,6 +43,7 @@ jobs:
       - name: Configure CMake flags and build executables
         run: |
           source /opt/ros/humble/setup.bash
+          source /usr/share/gazebo/setup.sh
           cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
           cmake --build build/ --target random_test --clean-first
 
