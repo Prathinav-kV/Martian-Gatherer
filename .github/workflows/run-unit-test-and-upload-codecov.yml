@@ -13,24 +13,30 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Install build packages
         run: |
           sudo apt update
           sudo apt install -y software-properties-common
           sudo apt install -y doxygen lcov gcovr
           sudo apt-get install -y libopencv-dev
+          sudo apt-get install -y libgtest-dev
+          sudo apt-get install -y cmake make
+          cd /usr/src/gtest
+          sudo cmake CMakeLists.txt
+          sudo make
+          sudo cp *.a /usr/lib
 
       - name: Configure CMake flags and build executables
         run: |
           cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
-          cmake --build build/ --target cpp-test --clean-first
+          cmake --build build/ --target random_test --clean-first
 
       - name: List build directory
         run: ls -R build
 
-      - name: Run Tests
-        run: ./build/test/cpp-test
+      - name: Run Random Test
+        run: ./build/test/random_test
 
       - name: Generate Coverage Report
         run: |
