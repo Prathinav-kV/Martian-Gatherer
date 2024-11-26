@@ -44,14 +44,19 @@ jobs:
         run: |
           source /opt/ros/humble/setup.bash
           source /usr/share/gazebo/setup.sh
-          cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/
-          cmake --build build/ --target random_test --clean-first
+          cmake -D WANT_COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug -S ./ -B build/ -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
+          cmake --build build/ --target random_test --clean-first -- -j$(nproc) VERBOSE=1
 
-      - name: List build directory
+      - name: List build directory contents
         run: ls -R build
 
+      - name: Check if random_test executable exists
+        run: test -f build/test/random_test
+
       - name: Run Random Test
-        run: ./build/test/random_test
+        run: |
+          source /opt/ros/humble/setup.bash
+          ./build/test/random_test
 
       - name: Generate Coverage Report
         run: |

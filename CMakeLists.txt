@@ -43,7 +43,7 @@ if(BUILD_TESTING)
     ${GAZEBO_LIBRARIES}
     pthread
   )
-  ament_add_test(NAME RandomObjectPluginTest COMMAND random_test)
+  ament_add_gtest(NAME RandomObjectPluginTest COMMAND random_test)
 endif()
 
 ament_package()
