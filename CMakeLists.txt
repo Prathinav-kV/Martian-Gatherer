@@ -48,8 +48,7 @@ install(TARGETS animated_box
 ##############################
 # Install gazebo world files
 install(FILES
-  worlds/my_world_3.world
-  worlds/animated_box.world
+  worlds/my_world_2.world
   DESTINATION share/${PROJECT_NAME}/worlds/
   )
 
