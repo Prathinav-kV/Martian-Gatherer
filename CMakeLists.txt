@@ -16,8 +16,10 @@ find_package(sensor_msgs REQUIRED)
 find_package(example_interfaces REQUIRED)
 find_package(gazebo REQUIRED)
 find_package(gazebo_ros REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(tf2 REQUIRED)
 
-# include_directories(include)
 
 install(DIRECTORY
         include
@@ -26,6 +28,24 @@ install(DIRECTORY
         models
         urdf
         DESTINATION share/${PROJECT_NAME}
+)
+
+set(dependencies
+  rclcpp
+  rclcpp_action
+  nav2_msgs
+  tf2
+)
+
+add_executable(nav2goal
+  src/nav2goal.cpp
+)
+ament_target_dependencies(nav2goal
+  ${dependencies}
+)
+
+install(TARGETS nav2goal
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
 ##############################
