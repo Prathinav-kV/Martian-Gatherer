@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.8)
 project(martian_gatherer)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -8,42 +11,52 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(GTest REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(example_interfaces REQUIRED)
 find_package(gazebo REQUIRED)
+find_package(gazebo_ros REQUIRED)
 
-# Add source files
-set(SOURCE_FILES
-  src/aruco_marker.cpp
-  src/random_object.cpp
-  src/robot_movement.cpp
+# include_directories(include)
+
+install(DIRECTORY
+        include
+        # launch
+        worlds
+        models
+        urdf
+        DESTINATION share/${PROJECT_NAME}
 )
 
-# Add executable for the main application
-add_executable(martian_gatherer_node ${SOURCE_FILES})
-target_link_libraries(martian_gatherer_node rclcpp)
+# ##############################
+# # Animated_box gazebo plugin
+# ##############################
+# add_library (animated_box SHARED src/animated_box.cpp)
+# target_compile_options(animated_box PUBLIC "${GAZEBO_CXX_FLAGS}")
+# target_include_directories(animated_box PUBLIC ${GAZEBO_INCLUDE_DIRS})
+# target_link_directories(animated_box PUBLIC ${GAZEBO_LIBRARY_DIRS})
 
-# Add test executable for random_test
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
+# # Ensure plugin version compatibility
+# target_compile_definitions(animated_box PUBLIC "GAZEBO_MAJOR_VERSION=${GAZEBO_MAJOR_VERSION}")
 
-  # Add test executable
-  add_executable(random_test test/random_test.cpp)
-  target_link_libraries(random_test
-    rclcpp
-    GTest::GTest
-    GTest::Main
-    ${GAZEBO_LIBRARIES}
-    pthread
-  )
-  ament_add_gtest(NAME RandomObjectPluginTest COMMAND random_test)
-endif()
+
+# install(TARGETS animated_box
+#   DESTINATION lib/${PROJECT_NAME})
+
+# ##############################
+# # Gazebo resouces
+# ##############################
+# # Install gazebo world files
+# install(FILES
+#   worlds/my_world_3.world
+#   worlds/animated_box.world
+#   DESTINATION share/${PROJECT_NAME}/worlds/
+#   )
+
+# # Install gazebo model files
+# install(DIRECTORY
+#   models
+#   DESTINATION share/${PROJECT_NAME}/
+#   )
 
 ament_package()
