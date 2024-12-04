@@ -21,42 +21,42 @@ find_package(gazebo_ros REQUIRED)
 
 install(DIRECTORY
         include
-        # launch
+        launch
         worlds
         models
         urdf
         DESTINATION share/${PROJECT_NAME}
 )
 
-# ##############################
-# # Animated_box gazebo plugin
-# ##############################
-# add_library (animated_box SHARED src/animated_box.cpp)
-# target_compile_options(animated_box PUBLIC "${GAZEBO_CXX_FLAGS}")
-# target_include_directories(animated_box PUBLIC ${GAZEBO_INCLUDE_DIRS})
-# target_link_directories(animated_box PUBLIC ${GAZEBO_LIBRARY_DIRS})
+##############################
+# Animated_box gazebo plugin
+##############################
+add_library (animated_box SHARED src/animated_box.cpp)
+target_compile_options(animated_box PUBLIC "${GAZEBO_CXX_FLAGS}")
+target_include_directories(animated_box PUBLIC ${GAZEBO_INCLUDE_DIRS})
+target_link_directories(animated_box PUBLIC ${GAZEBO_LIBRARY_DIRS})
 
-# # Ensure plugin version compatibility
-# target_compile_definitions(animated_box PUBLIC "GAZEBO_MAJOR_VERSION=${GAZEBO_MAJOR_VERSION}")
+# Ensure plugin version compatibility
+target_compile_definitions(animated_box PUBLIC "GAZEBO_MAJOR_VERSION=${GAZEBO_MAJOR_VERSION}")
 
 
-# install(TARGETS animated_box
-#   DESTINATION lib/${PROJECT_NAME})
+install(TARGETS animated_box
+  DESTINATION lib/${PROJECT_NAME})
 
-# ##############################
-# # Gazebo resouces
-# ##############################
-# # Install gazebo world files
-# install(FILES
-#   worlds/my_world_3.world
-#   worlds/animated_box.world
-#   DESTINATION share/${PROJECT_NAME}/worlds/
-#   )
+##############################
+# Gazebo resouces
+##############################
+# Install gazebo world files
+install(FILES
+  worlds/my_world_3.world
+  worlds/animated_box.world
+  DESTINATION share/${PROJECT_NAME}/worlds/
+  )
 
-# # Install gazebo model files
-# install(DIRECTORY
-#   models
-#   DESTINATION share/${PROJECT_NAME}/
-#   )
+# Install gazebo model files
+install(DIRECTORY
+  models
+  DESTINATION share/${PROJECT_NAME}/
+  )
 
 ament_package()
