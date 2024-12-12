@@ -1,0 +1,4 @@
+00:01:06 ~/Martian-Gatherer/src/martian_gatherer $ cpplint --filter="-legal/copyright" $( find . -name *.cpp | grep -v "/build/" )
+Done processing ./src/animated_box.cpp
+Done processing ./src/nav2goal.cpp
+Done processing ./src/spawn_box.cpp

@@ -1,0 +1,5 @@
+23:53:36 ~/Martian-Gatherer/src/martian_gatherer/src $ clang-format -style=Google -i nav2goal.cpp
+
+23:53:44 ~/Martian-Gatherer/src/martian_gatherer/src $ clang-format -style=Google -i spawn_box.cpp
+
+23:53:48 ~/Martian-Gatherer/src/martian_gatherer/src $ clang-format -style=Google -i animated_box.cpp
