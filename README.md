@@ -1,3 +1,5 @@
+![CICD Workflow status](https://github.com/Prathinav-kV/Martian-Gatherer/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/Prathinav-kV/Martian-Gatherer/graph/badge.svg?token=5IIV6EXEEV)](https://codecov.io/gh/Prathinav-kV/Martian-Gatherer)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 # Martian Gatherer
 
 ## **Project Overview**
@@ -6,14 +8,6 @@ The Martian Gatherer is a **ROS2-based simulation** that allows a robot to auton
 
 ---
 
-## **AIP Model and Development Approach**
-
-We have followed the **Agile Iterative Process (AIP) model** for our development. This model allows for continuous iterations and improvements throughout the development process. Each sprint focuses on incremental improvements, with regular reviews and retrospectives to assess progress and refine the next steps.
-
-### **AIP Product Backlog and Sprint Planning**
-
-- [**Product Backlog**](https://docs.google.com/spreadsheets/d/1JDAhqKNzfQw_SQy7KT3hBV-zDd4FMuCs95LgB8wYdUY/edit?gid=0#gid=0) - Link to the Google Sheets document containing the product backlog.
-- [**Sprint Planning Document**](https://docs.google.com/document/d/1xY_Vxz4sa3DS9jx3DZNXnuZeMRPlwxqR0DCihDlczrA/edit?tab=t.0) - Link to the Google Docs document used for sprint planning.
 
 
 ## **Project Requirements**
