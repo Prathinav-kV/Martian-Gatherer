@@ -8,6 +8,11 @@ The Martian Gatherer is a **ROS2-based simulation** that allows a robot to auton
 
 ---
 
+## AIP Product Backlog and Sprint Planning 
+- https://docs.google.com/spreadsheets/d/1JDAhqKNzfQw_SQy7KT3hBV-zDd4FMuCs95LgB8wYdUY/edit?gid=0#gid=0 -- Sheet Link for Product Backlog
+
+- https://docs.google.com/document/d/1xY_Vxz4sa3DS9jx3DZNXnuZeMRPlwxqR0DCihDlczrA/edit?tab=t.0 -- Sprint Planning Doc
+
 
 
 ## **Project Requirements**
