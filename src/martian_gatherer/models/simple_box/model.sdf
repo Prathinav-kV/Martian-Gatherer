@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="simple_box">
+    <static>false</static>
+    <link name="link">
+      <!-- Collision properties -->
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size> <!-- Length, Width, Height -->
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Visual properties -->
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size> <!-- Length, Width, Height -->
+          </box>
+        </geometry>
+        <material>
+          <ambient>1.0 0.0 0.0 1.0</ambient> <!-- Red color -->
+          <diffuse>1.0 0.0 0.0 1.0</diffuse> <!-- Red color -->
+          <specular>0.5 0.5 0.5 1.0</specular>
+        </material>
+      </visual>
+
+      <!-- Inertial properties -->
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.000833</ixx> <!-- Adjusted for new size -->
+          <iyy>0.000833</iyy> <!-- Adjusted for new size -->
+          <izz>0.000833</izz> <!-- Adjusted for new size -->
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+        </inertia>
+      </inertial>
+    </link>
+  </model>
+</sdf>
